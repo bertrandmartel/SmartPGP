@@ -42,8 +42,8 @@ public final class SmartPGPApplet extends Applet {
 
         ec = new ECCurves();
 
-        data = new Persistent();
         transients = new Transients();
+        data = new Persistent(transients);
         sm = new SecureMessaging(transients);
     }
 

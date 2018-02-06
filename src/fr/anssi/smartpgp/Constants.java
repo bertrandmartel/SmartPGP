@@ -36,14 +36,14 @@ public final class Constants {
         (byte)0xF9, (byte)0x03, (byte)0x81, (byte)0x01, (byte)0x00
     };
 
-    protected static final byte USER_PIN_RETRY_COUNT = 3;
+    protected static final byte USER_PIN_RETRY_COUNT = 4;
     protected static final byte USER_PIN_MIN_SIZE = 0x06;
     protected static final byte USER_PIN_MAX_SIZE = 0x7f; /* max is 0x7f because PIN format 2 */
     protected static final byte USER_PIN_MIN_SIZE_FORMAT_2 = 6;
     protected static final byte USER_PIN_MAX_SIZE_FORMAT_2 = 12;
     protected static final byte[] USER_PIN_DEFAULT = {
-	(byte)0x31, (byte)0x32, (byte)0x33, (byte)0x34,
-	(byte)0x35, (byte)0x36
+    (byte)0x31, (byte)0x32, (byte)0x33, (byte)0x34,
+    (byte)0x35, (byte)0x36
     };
     protected static final boolean USER_PIN_DEFAULT_IS_FORMAT_2 = false;
     /*
@@ -57,20 +57,20 @@ public final class Constants {
 
     protected static final boolean USER_PIN_DEFAULT_FORCE_VERIFY_SIGNATURE = true;
 
-    protected static final byte USER_PUK_RETRY_COUNT = 3;
+    protected static final byte USER_PUK_RETRY_COUNT = 4;
     protected static final byte USER_PUK_MIN_SIZE = 0x08;
     protected static final byte USER_PUK_MAX_SIZE = 0x7f; /* max is 0x7f because PIN format 2 */
     protected static final byte USER_PUK_MIN_SIZE_FORMAT_2 = 8;
     protected static final byte USER_PUK_MAX_SIZE_FORMAT_2 = 12;
 
-    protected static final byte ADMIN_PIN_RETRY_COUNT = 3;
+    protected static final byte ADMIN_PIN_RETRY_COUNT = 4;
     protected static final byte ADMIN_PIN_MIN_SIZE = 0x08;
     protected static final byte ADMIN_PIN_MAX_SIZE = 0x7f; /* max is 0x7f because PIN format 2 */
     protected static final byte ADMIN_PIN_MIN_SIZE_FORMAT_2 = 8;
     protected static final byte ADMIN_PIN_MAX_SIZE_FORMAT_2 = 12;
     protected static final byte[] ADMIN_PIN_DEFAULT = {
-	(byte)0x31, (byte)0x32, (byte)0x33, (byte)0x34,
-	(byte)0x35, (byte)0x36, (byte)0x37, (byte)0x38
+    (byte)0x31, (byte)0x32, (byte)0x33, (byte)0x34,
+    (byte)0x35, (byte)0x36, (byte)0x37, (byte)0x38
     };
     protected static final boolean ADMIN_PIN_DEFAULT_IS_FORMAT_2 = false;
     /*

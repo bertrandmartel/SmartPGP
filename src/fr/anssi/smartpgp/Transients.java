@@ -47,7 +47,10 @@ public final class Transients {
     private static final byte BOOLEAN_OFFSET_USER_PIN_MODE_81 = BOOLEAN_OFFSET_CHAINING_INPUT + 1;
     private static final byte BOOLEAN_OFFSET_USER_PIN_MODE_82 = BOOLEAN_OFFSET_USER_PIN_MODE_81 + 1;
     private static final byte BOOLEAN_OFFSET_SECURE_MESSAGING_OK = BOOLEAN_OFFSET_USER_PIN_MODE_82 + 1;
-    private static final byte BOOLEANS_SIZE = BOOLEAN_OFFSET_SECURE_MESSAGING_OK + 1;
+    private static final byte BOOLEAN_OFFSET_USER_PIN_VALIDATED = BOOLEAN_OFFSET_SECURE_MESSAGING_OK + 1;
+    private static final byte BOOLEAN_OFFSET_USER_PUK_VALIDATED = BOOLEAN_OFFSET_USER_PIN_VALIDATED + 1;
+    private static final byte BOOLEAN_OFFSET_ADMIN_PIN_VALIDATED = BOOLEAN_OFFSET_USER_PUK_VALIDATED + 1;
+    private static final byte BOOLEANS_SIZE = BOOLEAN_OFFSET_ADMIN_PIN_VALIDATED + 1;
 
 
     protected Transients() {
@@ -185,4 +188,27 @@ public final class Transients {
         return booleans[BOOLEAN_OFFSET_SECURE_MESSAGING_OK];
     }
 
+    protected final void setUserPinValidated(final boolean ok) {
+        booleans[BOOLEAN_OFFSET_USER_PIN_VALIDATED] = ok;
+    }
+
+    protected final boolean userPinValidated() {
+        return booleans[BOOLEAN_OFFSET_USER_PIN_VALIDATED];
+    }
+
+    protected final void setUserPukValidated(final boolean ok) {
+        booleans[BOOLEAN_OFFSET_USER_PUK_VALIDATED] = ok;
+    }
+
+    protected final boolean userPukValidated() {
+        return booleans[BOOLEAN_OFFSET_USER_PUK_VALIDATED];
+    }
+
+    protected final void setAdminPinValidated(final boolean ok) {
+        booleans[BOOLEAN_OFFSET_ADMIN_PIN_VALIDATED] = ok;
+    }
+
+    protected final boolean adminPinValidated() {
+        return booleans[BOOLEAN_OFFSET_ADMIN_PIN_VALIDATED];
+    }
 }

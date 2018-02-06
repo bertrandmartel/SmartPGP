@@ -78,22 +78,22 @@ public final class Persistent {
     protected final byte[] key_derivation_function;
     protected short key_derivation_function_length;
 
-    protected final OwnerPIN user_pin; /* PW1 */
+    protected final InsecurePIN user_pin; /* PW1 */
     protected byte user_pin_length;
     protected boolean user_pin_is_format_2;
     protected boolean user_pin_force_verify_signature;
 
-    protected final OwnerPIN user_puk; /* resetting code */
+    protected final InsecurePIN user_puk; /* resetting code */
     protected byte user_puk_length;
     protected boolean user_puk_is_format_2;
 
-    protected final OwnerPIN admin_pin; /* PW3 */
+    protected final InsecurePIN admin_pin; /* PW3 */
     protected byte admin_pin_length;
     protected boolean admin_pin_is_format_2;
 
 
 
-    protected Persistent() {
+    protected Persistent(final Transients transients) {
         login = new byte[Constants.specialDoMaxLength()];
         login_length = 0;
 
@@ -135,9 +135,12 @@ public final class Persistent {
         key_derivation_function = new byte[Constants.specialDoMaxLength()];
         key_derivation_function_length = 0;
 
-        user_pin = new OwnerPIN(Constants.USER_PIN_RETRY_COUNT, Constants.USER_PIN_MAX_SIZE);
-        user_puk = new OwnerPIN(Constants.USER_PUK_RETRY_COUNT, Constants.USER_PUK_MAX_SIZE);
-        admin_pin = new OwnerPIN(Constants.ADMIN_PIN_RETRY_COUNT, Constants.ADMIN_PIN_MAX_SIZE);
+        user_pin = new InsecurePIN(Constants.USER_PIN_RETRY_COUNT, Constants.USER_PIN_MAX_SIZE,
+                                   InsecurePIN.USER_PIN, transients);
+        user_puk = new InsecurePIN(Constants.USER_PUK_RETRY_COUNT, Constants.USER_PUK_MAX_SIZE,
+                                   InsecurePIN.USER_PUK, transients);
+        admin_pin = new InsecurePIN(Constants.ADMIN_PIN_RETRY_COUNT, Constants.ADMIN_PIN_MAX_SIZE,
+                                    InsecurePIN.ADMIN_PIN, transients);
 
         reset(true);
     }
