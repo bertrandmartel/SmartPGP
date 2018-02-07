@@ -108,12 +108,16 @@ public final class InsecurePIN {
 
     public final boolean check(byte[] pin, short offset, byte length) {
         if((pinSize <= 0) ||
-           (length != pinSize) || (length > pin.length) ||
+           (length > pin.length) ||
            (tryCount >= tryLimit) || isBlocked) {
             return false;
         }
 
         ++tryCount;
+
+        if(length != pinSize) {
+            return false;
+        }
 
         boolean result = true;
 
@@ -148,9 +152,10 @@ public final class InsecurePIN {
             return;
         }
 
-        resetAndUnblock();
-
+        Util.arrayFillNonAtomic(pin, (short)0, (short)pin.length, (byte)0);
         Util.arrayCopyNonAtomic(newPin, offset, pin, (short)0, length);
         pinSize = length;
+
+        resetAndUnblock();
     }
 }
