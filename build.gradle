@@ -3,7 +3,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'fr.bmartel:gradle-javacard:1.5.5'
+        classpath 'fr.bmartel:gradle-javacard:1.5.6'
     }
 }
 
@@ -15,6 +15,7 @@ dependencies {
 
 javacard {
     config {
+        jckit 'oracle_javacard_sdks/jc304_kit'
         cap {
             packageName 'fr.anssi.smartpgp'
             version '1.0'
@@ -36,3 +37,4 @@ sourceSets {
         }
     }
 }
+
